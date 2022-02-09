@@ -15,7 +15,7 @@
     }
 
     public DogDTO? GetDogByName(string dogName) {
-      return _dogs.FirstOrDefault(dog => dog.Name == dogName);
+      return _dogs.FirstOrDefault(dog => dog.Name.Equals(dogName, StringComparison.InvariantCultureIgnoreCase));
     }
 
     public DogDTO? GetDogById(int id) {

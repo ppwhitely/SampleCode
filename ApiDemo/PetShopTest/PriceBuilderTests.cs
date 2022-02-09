@@ -17,6 +17,17 @@ namespace PetShopTest {
     }
 
     [Test]
+    public void AgeAdjustment_ReducePriceOfOldDogs() {
+      var standardDog = new Dog { Age = 5, Breed = DogBreed.LabradorRetriver, Id = 1, Name = "Standard Dog" };
+      var oldDog = new Dog { Age = 10, Breed = DogBreed.LabradorRetriver, Id = 2, Name = "OldDog" };
+
+      var priceOfStandardDog = PriceBuilder.GetPrice(standardDog);
+      var priceOfOldDog = PriceBuilder.GetPrice(oldDog);
+
+      Assert.IsTrue(priceOfOldDog < priceOfStandardDog);
+    }
+
+    [Test]
     public void DayOfWeekModifier_WeekendsDoublePrice() {
       var standardDog = new Dog { Age = 5, Breed = DogBreed.LabradorRetriver, Id = 1, Name = "Standard Dog" };
 

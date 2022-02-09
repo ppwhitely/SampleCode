@@ -19,7 +19,6 @@ namespace ApiDemo.Controllers {
       if (string.IsNullOrEmpty(dogName)) {
         return BadRequest();
       }
-
       var dog = _dogService.GetDogByName(dogName);
       if (dog == null) return NotFound();
 
