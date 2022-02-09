@@ -28,7 +28,27 @@
       var newDogid = _dogs.Max(dog => dog.Id);
       newDog.Id = newDogid + 1;
       _dogs.Add(newDog);
+      //Save data
       return true;
+    }
+
+    public void RemoveDog(int dogId) {
+      var dogToRemove = GetDogById(dogId);
+
+      if (dogToRemove != null) {
+        _dogs.Remove(dogToRemove);
+      }
+      //Save data
+    }
+
+    public void UpdateDog(DogDTO newDog) {
+      var dogToUpdate = _dogs.FirstOrDefault(dog => dog.Id == newDog.Id);
+      if(dogToUpdate != null) {
+        dogToUpdate.Name = newDog.Name;
+        dogToUpdate.Breed = newDog.Breed;
+        dogToUpdate.Age = newDog.Age;
+      }
+      //Save data
     }
   }
 }

@@ -34,5 +34,17 @@ namespace ApiDemo.Controllers {
 
       return Ok();
     }
+
+    [HttpDelete]
+    public ActionResult<DogDTO> Delete(int id) {
+      _dogService.RemoveDog(id);
+      return Ok();
+    }
+
+    [HttpPut]
+    public ActionResult<DogDTO> Update(DogDTO dog) {
+      _dogService.UpdateDog(dog);
+      return Ok();
+    }
   }
 }
