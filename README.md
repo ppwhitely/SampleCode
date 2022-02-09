@@ -1,4 +1,4 @@
-A quick implimentation of an API endpoints.
+A quick implimentation of API endpoints.
 
 Petshop controller is an example of hooking up to some businesslogic to perform a service.  Example right now will provide the price of a dog 
 based of of Age of dog, day of week, and dog breed.  Unit tests have been added.  This can be enhanced by making it more generic.  Currently its dog focused, however 
