@@ -4,7 +4,6 @@ using ApiDemo.Services;
 namespace ApiDemo.Controllers {
 
   [ApiController]
-
   [Route("[controller]")]
   public class DogController : ControllerBase {
     private readonly ILogger<DogController> _logger;
@@ -16,7 +15,7 @@ namespace ApiDemo.Controllers {
     }
 
     [HttpGet]
-    public ActionResult<Dog> GetByName(string dogName) {
+    public ActionResult<DogDTO> GetByName(string dogName) {
       if (string.IsNullOrEmpty(dogName)) {
         return BadRequest();
       }
@@ -28,7 +27,7 @@ namespace ApiDemo.Controllers {
     }
 
     [HttpPost]
-    public ActionResult<Dog> Post(Dog newDog) {
+    public ActionResult<DogDTO> Post(DogDTO newDog) {
       var addSuccessful = _dogService.AddDog(newDog);
       if (!addSuccessful) {
         return BadRequest();
